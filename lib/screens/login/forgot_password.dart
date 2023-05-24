@@ -1,4 +1,5 @@
 import 'package:demo_bv/screens/common/text_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../common/button.dart';
@@ -11,6 +12,7 @@ class ForgotPassword extends StatefulWidget {
 
 class _InputWrapperWidget extends State<ForgotPassword> {
   var _name = "Forgot Password?";
+  bool switchValue = true;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,30 @@ class _InputWrapperWidget extends State<ForgotPassword> {
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(10)),
               child: LoginField(),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const CustomTextWidget(
+                  msg: "Save Password",
+                  textColor: Colors.grey,
+                  fontSize: 15,
+                  isBold: false,
+                ),
+                CupertinoSwitch(
+                  value: switchValue,
+                  activeColor: Colors.cyan.shade500,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      switchValue = value ?? false;
+                    });
+                  },
+                ),
+              ],
             ),
             const SizedBox(
               height: 10,
@@ -50,7 +76,9 @@ class _InputWrapperWidget extends State<ForgotPassword> {
             const SizedBox(
               height: 10,
             ),
-            Button(buttonName: "Sign In",),
+            const Button(
+              buttonName: "Sign In",
+            ),
             const SizedBox(
               height: 20,
             ),

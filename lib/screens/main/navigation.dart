@@ -32,6 +32,7 @@ class CustomNavigationWidget extends StatelessWidget {
             title: const Text("Contact Us"),
             onTap: () {
               drawerState.currentState?.closeDrawer();
+              Navigator.of(context).pushNamed("/learnerList");
             },
           ),
         ],

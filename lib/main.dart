@@ -1,4 +1,5 @@
 import 'package:demo_bv/screens/home/home.dart';
+import 'package:demo_bv/screens/list/ui/learnerlist.dart';
 import 'package:demo_bv/screens/login/login_screen.dart';
 import 'package:demo_bv/screens/register/register.dart';
 import 'package:flutter/cupertino.dart';
@@ -41,6 +42,13 @@ class MyApp extends StatelessWidget {
               return CupertinoPageRoute<bool>(
                 fullscreenDialog: false,
                 builder: (BuildContext context) => const Register_Screen(),
+              );
+            }
+          case '/learnerList':
+            {
+              return CupertinoPageRoute<bool>(
+                fullscreenDialog: false,
+                builder: (BuildContext context) => const LearnerList(),
               );
             }
         }

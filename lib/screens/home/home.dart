@@ -40,7 +40,6 @@ class Home_Screen extends StatelessWidget {
           msg: "Hello World",
           fontSize: 20,
           textColor: Colors.cyan,
-
         ),
       ),
       floatingActionButton: FloatingActionButton(
