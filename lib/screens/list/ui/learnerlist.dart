@@ -106,9 +106,9 @@ class LearnerWidget extends State<LearnerList> {
                       padding: const EdgeInsets.all(10),
                       child: CustomTextWidget(
                         msg: "#UserId${learnerList[index].subscriptionTime}",
-                        textColor: Colors.cyan,
-                        fontSize: 15,
-                        isBold: true,
+                        textColor: Colors.black,
+                        fontSize: 12,
+                        isBold: false,
                         textPadding: 5,
                       ),
                     ),
