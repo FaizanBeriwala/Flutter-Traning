@@ -15,14 +15,15 @@ List<LearnerModel> learnerList = [];
 class LearnerWidget extends State<LearnerList> {
   @override
   Widget build(BuildContext context) {
+    learnerList.clear();
     for (var i = 0; i < 10; i++) {
       learnerList.add(LearnerModel(
           name: "Tome Curse",
           gender: "Male",
-          age: "22Years",
+          age: "22 Years",
           date: "10/april/2023 To 23/april/2023",
           DOB: "31-jan-2023",
-          subscriptionTime: "2 months Plan",
+          subscriptionTime: "2 Months Plan",
           expireText: "Active",
           expireColor: Colors.green,
           imagePath: "assets/images/person.png"));
@@ -41,14 +42,12 @@ class LearnerWidget extends State<LearnerList> {
           itemCount: learnerList.length,
           itemBuilder: (context, index) {
             return InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed("/register");
-              },
+              onTap: () {},
               child: Container(
-                margin: const EdgeInsets.all(16),
+                margin: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(5),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,28 +56,72 @@ class LearnerWidget extends State<LearnerList> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(5),
                           child: Container(
                             width: 60,
                             height: 60,
                             decoration: BoxDecoration(
                                 border: Border.all(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(10)),
+                                borderRadius: BorderRadius.circular(5)),
                             child: Image.asset(
                               learnerList[index].imagePath,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
-                        Expanded(flex: 1,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [],
-                            )
+                        Expanded(
+                          flex: 1,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomTextWidget(
+                                msg: learnerList[index].name,
+                                textColor: Colors.black,
+                                fontSize: 20,
+                                isBold: false,
+                                textPadding: 3,
+                              ),
+                              IntrinsicHeight(
+                                child: Row(
+                                  children: [
+                                    CustomTextWidget(
+                                      msg: learnerList[index].gender,
+                                      textColor: Colors.black,
+                                      fontSize: 10,
+                                      isBold: false,
+                                      textPadding: 3,
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.all(5),
+                                      child: VerticalDivider(
+                                        color: Colors.grey,
+                                        thickness: 1,
+                                        width: 2,
+                                      ),
+                                    ),
+                                    CustomTextWidget(
+                                      msg: learnerList[index].age,
+                                      textColor: Colors.black,
+                                      fontSize: 10,
+                                      isBold: false,
+                                      textPadding: 3,
+                                    )
+                                  ],
+                                ),
+                              ),
+                              CustomTextWidget(
+                                msg: "DOB : ${learnerList[index].DOB}",
+                                textColor: Colors.black,
+                                fontSize: 12,
+                                isBold: false,
+                                textPadding: 3,
+                              ),
+                            ],
+                          ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 5),
+                          padding: const EdgeInsets.only(top: 5),
                           child: Container(
                             constraints: const BoxConstraints(minWidth: 80),
                             decoration: BoxDecoration(
@@ -105,9 +148,9 @@ class LearnerWidget extends State<LearnerList> {
                     Padding(
                       padding: const EdgeInsets.all(10),
                       child: CustomTextWidget(
-                        msg: "#UserId${learnerList[index].subscriptionTime}",
-                        textColor: Colors.black,
-                        fontSize: 12,
+                        msg: "#UserId ${learnerList[index].subscriptionTime}",
+                        textColor: Colors.blue,
+                        fontSize: 15,
                         isBold: false,
                         textPadding: 5,
                       ),
