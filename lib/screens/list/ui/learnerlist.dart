@@ -31,12 +31,12 @@ class LearnerWidget extends State<LearnerList> {
 
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.cyan,
-          centerTitle: true,
-          elevation: 0,
-          title: const Text("Learners"),
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: Colors.cyan,
+        //   centerTitle: true,
+        //   elevation: 0,
+        //   title: const Text("Learners"),
+        // ),
         body: ListView.builder(
           padding: const EdgeInsets.all(8),
           itemCount: learnerList.length,

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 class CustomNavigationWidget extends StatelessWidget {
   final GlobalKey<ScaffoldState> drawerState;
 
-  const CustomNavigationWidget({required this.drawerState, super.key});
+  const CustomNavigationWidget(
+      {required this.drawerState, super.key, required this.onItemTap});
+
+  final Function(int index) onItemTap;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class CustomNavigationWidget extends StatelessWidget {
             title: const Text("Contact Us"),
             onTap: () {
               drawerState.currentState?.closeDrawer();
-              Navigator.of(context).pushNamed("/learnerList");
+              onItemTap(0);
             },
           ),
         ],
