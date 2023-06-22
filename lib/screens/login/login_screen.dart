@@ -1,37 +1,73 @@
+import 'package:demo_bv/screens/common/app_colors.dart';
 import 'package:flutter/material.dart';
 
-import '../home/header_auth.dart';
+import '../common/extension.dart';
+import '../common/text_widget.dart';
 import 'forgot_password.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-          Colors.cyan.shade500,
-          Colors.cyan.shade300,
-          Colors.cyan.shade400
-        ], begin: Alignment.topCenter)),
-        child: Column(
-          children: <Widget>[
-            const SizedBox(
-              height: 40,
-            ),
-            const HeaderAuth(headerName: "Login", isBackShow: false,),
-            Expanded(
-                child: Container(
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40),
-                  )),
-              child: ForgotPassword(),
-            ))
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.white,
+          child: Column(
+            children: [
+              Stack(
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/login_image.png',
+                  ),
+                  Positioned(
+                    bottom: 30,
+                    left: 40,
+                    right: 40,
+                    child: CustomTextWidget(
+                      msg: "Login",
+                      textColor: hexColor(AppColors.colorPrimary),
+                      fontSize: 35,
+                      isBold: true,
+                      textPadding: 5,
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 5,
+                    left: 40,
+                    right: 40,
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const CustomTextWidget(
+                            msg: "Already have an account?",
+                            textColor: Colors.grey,
+                            fontSize: 15,
+                            isBold: false,
+                            textPadding: 5,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).pushNamed("/register");
+                            },
+                            child:  CustomTextWidget(
+                              msg: "SignUp?",
+                              textColor: hexColor(AppColors.colorPrimary),
+                              fontSize: 15,
+                              isBold: true,
+                              textPadding: 5,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                    ),
+                  ),
+                ],
+              ),
+              ForgotPassword(),
+            ],
+          ),
         ),
       ),
     );

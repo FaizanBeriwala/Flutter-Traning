@@ -1,3 +1,4 @@
+import 'package:demo_bv/screens/autism/ui/splash.dart';
 import 'package:demo_bv/screens/home/home.dart';
 import 'package:demo_bv/screens/list/ui/learnerlist.dart';
 import 'package:demo_bv/screens/login/login_screen.dart';
@@ -20,9 +21,16 @@ class MyApp extends StatelessWidget {
       //   "/login": (context) => LoginScreen(),
       //   "/register": (context) => Register_Screen(),
       // },
-      initialRoute: "/login",
+      initialRoute: "/splash",
       onGenerateRoute: (routeSettings) {
         switch (routeSettings.name) {
+          case '/splash':
+            {
+              return CupertinoPageRoute<bool>(
+                fullscreenDialog: false,
+                builder: (BuildContext context) => SplashScreen(),
+              );
+            }
           case '/login':
             {
               return CupertinoPageRoute<bool>(
@@ -34,14 +42,14 @@ class MyApp extends StatelessWidget {
             {
               return CupertinoPageRoute<bool>(
                 fullscreenDialog: false,
-                builder: (BuildContext context) => const Home_Screen(),
+                builder: (BuildContext context) => const HomeScreen(),
               );
             }
           case '/register':
             {
               return CupertinoPageRoute<bool>(
                 fullscreenDialog: false,
-                builder: (BuildContext context) => const Register_Screen(),
+                builder: (BuildContext context) => const RegisterScreen(),
               );
             }
           case '/learnerList':
@@ -52,6 +60,7 @@ class MyApp extends StatelessWidget {
               );
             }
         }
+        return null;
       },
     );
   }

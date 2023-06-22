@@ -23,12 +23,12 @@ class HeaderAuth extends StatelessWidget {
                   child: isBackShow
                       ? const Icon(
                           Icons.arrow_back_ios,
-                          color: Colors.white,
+                          color: Colors.blue,
                         )
                       : const Icon(null))),
           Center(
             child: CustomTextWidget(
-                msg: headerName, textColor: Colors.white, fontSize: 40),
+                msg: headerName, textColor: Colors.blue, fontSize: 40,isBold: true,),
           ),
         ],
       ),

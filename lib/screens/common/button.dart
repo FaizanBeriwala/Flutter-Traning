@@ -1,3 +1,5 @@
+import 'package:demo_bv/screens/common/app_colors.dart';
+import 'package:demo_bv/screens/common/extension.dart';
 import 'package:demo_bv/screens/common/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -10,13 +12,14 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed("/home");
+        Navigator.pushNamedAndRemoveUntil(
+            context, "/home", (Route<dynamic> route) => false);
       },
       child: Container(
         height: 50,
         margin: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
-            color: Colors.cyan.shade500,
+            color: hexColor(AppColors.colorPrimary),
             borderRadius: BorderRadius.circular(5)),
         child: Center(
           child: CustomTextWidget(

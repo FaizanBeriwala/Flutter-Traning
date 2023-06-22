@@ -13,8 +13,6 @@ class RegisterField extends StatefulWidget {
 class _RegisterWidget extends State<RegisterField> {
   var passwordToggle = false;
   var confirmPasswordToggle = false;
-  var _email = "";
-  var _password = "";
   bool isChecked = false;
 
   DateTime datePicked = DateTime.now();
@@ -33,7 +31,6 @@ class _RegisterWidget extends State<RegisterField> {
               child: TextField(
                 onChanged: (value) {
                   setState(() {
-                    _email = value;
                   });
                 },
                 keyboardType: TextInputType.name,
@@ -51,7 +48,6 @@ class _RegisterWidget extends State<RegisterField> {
               child: TextField(
                 onChanged: (value) {
                   setState(() {
-                    _email = value;
                   });
                 },
                 keyboardType: TextInputType.emailAddress,
@@ -69,7 +65,6 @@ class _RegisterWidget extends State<RegisterField> {
               child: TextField(
                 onChanged: (value) {
                   setState(() {
-                    _email = value;
                   });
                 },
                 keyboardType: TextInputType.emailAddress,
@@ -92,7 +87,6 @@ class _RegisterWidget extends State<RegisterField> {
                         "${datePicked.day}/${datePicked.month}/${datePicked.year}"),
                 onChanged: (value) {
                   setState(() {
-                    _email = value;
                   });
                 },
                 onTap: () async {
@@ -102,9 +96,7 @@ class _RegisterWidget extends State<RegisterField> {
                       firstDate: DateTime(1900),
                       lastDate: DateTime.now()))!;
 
-                  if (datePicked != null) {
-                    setState(() {});
-                  }
+                  setState(() {});
                 },
                 keyboardType: TextInputType.datetime,
                 decoration: const InputDecoration(
@@ -122,7 +114,6 @@ class _RegisterWidget extends State<RegisterField> {
                 obscureText: !passwordToggle,
                 onChanged: (value) {
                   setState(() {
-                    _email = value;
                   });
                 },
                 keyboardType: TextInputType.visiblePassword,
@@ -150,7 +141,6 @@ class _RegisterWidget extends State<RegisterField> {
                 obscureText: !confirmPasswordToggle,
                 onChanged: (value) {
                   setState(() {
-                    _email = value;
                   });
                 },
                 keyboardType: TextInputType.emailAddress,
