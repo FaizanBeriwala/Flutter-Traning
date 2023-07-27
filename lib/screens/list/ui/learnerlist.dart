@@ -18,7 +18,7 @@ class LearnerWidget extends State<LearnerList> {
     learnerList.clear();
     for (var i = 0; i < 10; i++) {
       learnerList.add(LearnerModel(
-          name: "Tome Curse",
+          name: "Tome Cruise",
           gender: "Male",
           age: "22 Years",
           date: "10/april/2023 To 23/april/2023",

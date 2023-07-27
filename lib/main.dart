@@ -4,7 +4,7 @@ import 'package:demo_bv/screens/list/ui/learnerlist.dart';
 import 'package:demo_bv/screens/login/login_screen.dart';
 import 'package:demo_bv/screens/register/register.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       // routes: {
       //   "/login": (context) => LoginScreen(),

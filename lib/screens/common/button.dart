@@ -2,6 +2,7 @@ import 'package:demo_bv/screens/common/app_colors.dart';
 import 'package:demo_bv/screens/common/extension.dart';
 import 'package:demo_bv/screens/common/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Button extends StatelessWidget {
   final buttonName;
@@ -12,6 +13,12 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        Get.snackbar("Test Title", "Test Message",
+            snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: Colors.amber,
+            icon: const Icon(Icons.add_a_photo),
+            margin: const EdgeInsets.all(20));
+
         Navigator.pushNamedAndRemoveUntil(
             context, "/home", (Route<dynamic> route) => false);
       },
